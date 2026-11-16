@@ -35,12 +35,12 @@ export function SiteHeader() {
   useEffect(() => {
     if (!suppressedDropdown) return;
 
-    const dropdown = document.querySelector<HTMLElement>(
-      `[data-nav-dropdown="${suppressedDropdown}"]`,
-    );
-    if (!dropdown) return;
-
     function releaseSuppression(event: PointerEvent) {
+      const dropdown = document.querySelector<HTMLElement>(
+        `[data-nav-dropdown="${suppressedDropdown}"]`,
+      );
+      if (!dropdown) return;
+
       const bounds = [
         dropdown.getBoundingClientRect(),
         dropdown.querySelector(".dropdown-panel")?.getBoundingClientRect(),
